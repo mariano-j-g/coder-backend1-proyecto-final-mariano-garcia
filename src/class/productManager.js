@@ -8,7 +8,7 @@ class ProductManager {
     } catch {}
     return {
       status: "error",
-      messaje: "No se pudo acceder a la base de datos",
+      messaje: "No se puede acceder",
     };
   }
   async showDataBase(limit = 10, page = 1, sort, category) {
@@ -28,7 +28,7 @@ class ProductManager {
     } catch {
       return {
         status: "error",
-        messaje: "No se pudo acceder a la base de datos",
+        messaje: "No se puede acceder",
       };
     }
   }
@@ -45,8 +45,7 @@ class ProductManager {
       } else
         return {
           status: "error",
-          messaje:
-            "Se realizo la busqueda y no se encontró ningun producto en la base de datos",
+          messaje: "Busqueda sin resutados",
         };
     } else {
       return productsInDataBase;
@@ -59,10 +58,7 @@ class ProductManager {
     } catch {
       return {
         status: "error",
-        messaje:
-          "El producto con el id:" +
-          productId +
-          " no se encuentra en la base de datos",
+        messaje: "Procucto id:" + productId + " no se encuentra",
       };
     }
   }
@@ -72,45 +68,44 @@ class ProductManager {
       if (typeof title !== "string") {
         return {
           status: "error",
-          messaje: "El campo title debe ser un texto (string)",
+          messaje: "Debe ser texto",
         };
       }
       if (typeof description !== "string") {
         return {
           status: "error",
-          messaje: "El campo description debe ser un texto (string)",
+          messaje: "Debe ser texto",
         };
       }
       if (typeof code !== "string") {
         return {
           status: "error",
-          messaje: "El campo code debe ser un texto (string)",
+          messaje: "Debe ser texto",
         };
       }
       if (typeof price !== "number") {
         return {
           status: "error",
-          messaje: "El campo price debe ser un número (Number)",
+          messaje: "Debe ser un numero",
         };
       }
       if (typeof stock !== "number") {
         return {
           status: "error",
-          messaje: "El campo stock debe ser un número (Number)",
+          messaje: "Debe ser un numero",
         };
       }
       if (typeof category !== "string") {
         return {
           status: "error",
-          messaje: "El campo category debe ser un texto (string)",
+          messaje: "Debe ser un texto",
         };
       }
       if (body.thumbnails) {
         if (!Array.isArray(body.thumbnails)) {
           return {
             status: "error",
-            messaje:
-              "El campo thumbnails debe ser un arreglo de strings (array)",
+            messaje: "Debe ser array",
           };
         }
       }
@@ -122,11 +117,11 @@ class ProductManager {
 
       return {
         status: "succes",
-        messaje: "Se agregó correctamente el producto.",
+        messaje: "Producto agregado",
       };
     } else {
       return {
-        messaje: "Es requisito que complete todos los campos",
+        messaje: "Completar todos los campos",
       };
     }
   }
@@ -143,45 +138,44 @@ class ProductManager {
         if (typeof title !== "string") {
           return {
             status: "error",
-            messaje: "El campo title debe ser un texto (string)",
+            messaje: "Debe ser un texto",
           };
         }
         if (typeof description !== "string") {
           return {
             status: "error",
-            messaje: "El campo description debe ser un texto (string)",
+            messaje: "Debe sr un texto",
           };
         }
         if (typeof code !== "string") {
           return {
             status: "error",
-            messaje: "El campo code debe ser un texto (string)",
+            messaje: "Debe ser un texto",
           };
         }
         if (typeof price !== "number") {
           return {
             status: "error",
-            messaje: "El campo price debe ser un número (Number)",
+            messaje: "Debe ser un numero",
           };
         }
         if (typeof stock !== "number") {
           return {
             status: "error",
-            messaje: "El campo stock debe ser un número (Number)",
+            messaje: "Este campo debe ser un numero",
           };
         }
         if (typeof category !== "string") {
           return {
             status: "error",
-            messaje: "El campo category debe ser un texto (string)",
+            messaje: "Este campo debe ser un texto",
           };
         }
         if (body.thumbnails) {
           if (!Array.isArray(body.thumbnails)) {
             return {
               status: "error",
-              messaje:
-                "El campo thumbnails debe ser un arreglo de strings (array)",
+              messaje: "debe ser un array",
             };
           }
         }
@@ -209,35 +203,29 @@ class ProductManager {
           );
           return {
             status: "succes",
-            messaje: "Se modificó correctamente el producto.",
+            messaje: "Producto modificado.",
           };
         } catch {
           return {
             status: "error",
-            messaje: "Error al querer modificar un producto",
+            messaje: "No se pudo modificar producto",
           };
         }
       }
     }
     return {
       status: "error",
-      messaje:
-        "El producto a modificar con el id:" +
-        productId +
-        " no se encuentra en la base de datos",
+      messaje: "El producto id:" + productId + " no se encuentra",
     };
   }
   async deleteProduct(productId) {
     try {
       await productDb.deleteOne({ _id: productId });
-      return { status: "succes", messaje: "Se borro el producto con éxito" };
+      return { status: "succes", messaje: "Producto eliminado" };
     } catch {
       return {
         status: "error",
-        messaje:
-          "El producto con el id: " +
-          productId +
-          " no se encuentra en la base de datos",
+        messaje: "Producto id: " + productId + " no se encuentra",
       };
     }
   }
