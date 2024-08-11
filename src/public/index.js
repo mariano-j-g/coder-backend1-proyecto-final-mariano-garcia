@@ -19,7 +19,7 @@ socket.on("showProducts", (products) => {
       deleteProduct(product._id);
     });
     const buttonAddProductToCart = document.createElement("button");
-    buttonAddProductToCart.innerHTML = "Agregar al carrito";
+    buttonAddProductToCart.innerHTML = "Agregar al carro";
     buttonAddProductToCart.addEventListener("click", () => {
       addProductInCart(product._id);
     });
@@ -70,7 +70,7 @@ const addProduct = () => {
     category: String(document.querySelector("#addCategory").value),
   };
   socket.emit("addProductFromView", productToAdd);
-  Swal.fire("El producto se agregó al final de la lista");
+  Swal.fire("Producto agregado");
 };
 
 const deleteProduct = (productId) => {
