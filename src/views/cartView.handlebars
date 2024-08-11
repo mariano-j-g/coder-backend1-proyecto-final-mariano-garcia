@@ -1,0 +1,30 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<h1>Productos del carrito</h1>
+
+ 
+   {{#each cart}}
+    <div class="producto">
+     
+    <li >
+     Producto: {{this.product.title}}
+    </li>
+ 
+      <p>Descripcion: {{this.product.description}}</p>
+    <p>Categoria: {{this.product.category}}</p>
+      <p>Precio: {{this.product.price}}</p>
+      <p>Cantidad: {{this.quantity}}</p>
+             </div>
+  {{/each}}
+</div>
+<p>
+  <button>
+    <a href="/carts">
+      Atras</a></button>
+</p>

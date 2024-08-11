@@ -1,0 +1,25 @@
+{
+  "name": "backend-proyecto-final",
+  "version": "1.0.0",
+  "description": "proyecto-final-curso-backend-mariano-garcia",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "marino garcia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.19.2",
+    "express-handlebars": "8.0.1",
+    "mongoose": "8.5.2",
+    "mongoose-aggregate-paginate-v2": "1.1.2",
+    "mongoose-paginate-v2": "1.8.3",
+    "socket.io": "4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "3.1.4"
+  }
+}

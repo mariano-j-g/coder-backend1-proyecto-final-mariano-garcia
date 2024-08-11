@@ -1,0 +1,20 @@
+<h1>Lista de productos agregados "ESTA VISTA NO USA WEBSOCKET"</h1>
+<div id="products">
+
+  {{#each products.payload}}
+    <div class="producto">
+
+      <li>
+        {{this.title}}
+      </li>
+      <p>Descripcion: {{this.description}}</p>
+      <p>Categoria: {{this.category}}</p>
+      <p>Precio: {{this.price}}</p>
+    </div>
+  {{/each}}
+</div>
+<p>
+  <button>
+    <a href="/">
+      Volver al home</a></button>
+</p>

@@ -1,0 +1,21 @@
+<h1>Todos los carritos</h1>
+
+ 
+   {{#each cartsInDatabase}}
+    <div class="producto">
+
+     <p>
+  <button>
+    <a href="/carts/{{this._id}}">
+      Ingresar al detalle del carrito</a></button>
+</p>
+    
+             </div>
+  {{/each}}
+</div>
+<p>
+  <button>
+    <a href="/">
+      Volver al home</a></button>
+</p>
+<link rel="stylesheet" href="styles.css">

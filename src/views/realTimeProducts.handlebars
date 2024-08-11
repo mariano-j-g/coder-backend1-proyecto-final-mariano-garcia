@@ -1,0 +1,29 @@
+<div>
+  <div class="article">
+    <h2>Agregar un producto</h2>
+    <input id="addTitle" type="text" placeholder="Titulo" />
+    <input id="addDescription" type="text" placeholder="Descripcion" />
+    <input id="addCode" type="text" placeholder="Codigo" />
+    <input id="addPrice" type="number" placeholder="Precio" />
+    <input id="addStock" type="number" placeholder="Stock" />
+    <input id="addCategory" type="text" placeholder="Categoria" />
+
+    <button id="button-add" onclick="addProduct()">Agregar</button>
+  </div>
+  <p id="buttons"></p>
+
+  <h1>Productos almacenados utilizando MongoDB</h1>
+  <div id="products">
+
+  </div>
+  <p>
+    <button>
+      <a href="/">
+        Volver al home</a></button>
+  </p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./index.js"></script>
