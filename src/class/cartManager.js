@@ -15,13 +15,12 @@ class CartManager {
       return cartsInDatabase;
     } else
       return {
-        messaje:
-          "Se realizo la busqueda y no se encontró ningun carrito en la base de datos",
+        messaje: "Carro inaxistente",
       };
   }
   async addCart() {
     await cartDb.create({ products: [] });
-    return { messaje: "Se agregó correctamente el nuevo carrito." };
+    return { messaje: "Nuevo carro agregado" };
   }
   async getCartById(cartId) {
     try {
@@ -33,13 +32,11 @@ class CartManager {
         return cartFinded.products;
       }
       return {
-        message:
-          "Este carrito aun no tiene productos cargados dentro del mismo",
+        message: "Carro vacio",
       };
     } catch {
       return {
-        message:
-          "El carrito con el id:" + cartId + " no existe en la base de datos",
+        message: "Carro id:" + cartId + " no existe",
       };
     }
   }
@@ -57,9 +54,9 @@ class CartManager {
         await cartDb.updateOne({ _id: params.idcart }, cartFinded);
         return {
           messaje:
-            "Se agregó una unidad mas del producto con id:" +
+            "Se agrego producto id:" +
             params.idproduct +
-            " al carrito con id:" +
+            " al carro id:" +
             params.idcart,
         };
       } else {
@@ -72,22 +69,22 @@ class CartManager {
           await cartDb.updateOne({ _id: params.idcart }, cartFinded);
           return {
             messaje:
-              "Se agregó el producto con id:" +
+              "Se agrega producto id:" +
               params.idproduct +
-              " al carrito con id:" +
+              " al carro id:" +
               params.idcart,
           };
         } catch {
           return {
             status: "error",
-            messaje: "Problemas al agregar el producto en el carrito",
+            messaje: "no se pudo agregar producto",
           };
         }
       }
     } else {
       return {
         status: "error",
-        messaje: "Ese carrito no se encuentra en la base de datos",
+        messaje: "Carro inexistente",
       };
     }
   }
@@ -98,20 +95,16 @@ class CartManager {
       try {
         await cartDb.updateOne({ _id: idcart }, cartFinded);
         return {
-          message:
-            "Se han quitado todos los productos del carrito con el id:" +
-            idcart,
+          message: "Productos eliminados de carro id:" + idcart,
         };
       } catch {
         return {
-          message:
-            "Este carrito no tiene productos cargados para ser eliminados del mismo",
+          message: "Carro sin productos que eliminar",
         };
       }
     } catch {
       return {
-        message:
-          "El carrito con el id:" + idcart + " no existe en la base de datos",
+        message: "Carro id:" + idcart + " no existe",
       };
     }
   }
@@ -129,14 +122,14 @@ class CartManager {
       await cartDb.updateOne({ _id: params.idcart }, cartModificated);
       return {
         messaje:
-          "Se eliminaron todas las unidades del producto con id:" +
+          "Unidades eliminadas del producto id:" +
           params.idproduct +
-          " del carrito con id:" +
+          " del carro id:" +
           params.idcart,
       };
     } else {
       return {
-        messaje: "Ese carrito no existe",
+        messaje: "Carro no existe",
       };
     }
   }
@@ -157,12 +150,11 @@ class CartManager {
         };
       } else {
         return {
-          messaje:
-            "Ese producto aun no existe en este carrito, por lo tanto no podes cambiar la cantidad",
+          messaje: "Producto no existe en este carro",
         };
       }
     } else {
-      return { messaje: "Ese carrito no existe" };
+      return { messaje: "carro inexistente" };
     }
   }
 
@@ -175,11 +167,10 @@ class CartManager {
       const cartModificated = { ...cartFinded, products: body };
       await cartDb.updateOne({ _id: params.idcart }, cartModificated);
       return {
-        messaje:
-          "Se cambiaron todos los productos del carrito, por el arreglo de productos enviado por body",
+        messaje: "Productos del carro modificados",
       };
     } else {
-      return { messaje: "Ese carrito no existe" };
+      return { messaje: "Carro inexistente" };
     }
   }
 }
