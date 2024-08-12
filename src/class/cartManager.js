@@ -15,7 +15,7 @@ class CartManager {
       return cartsInDatabase;
     } else
       return {
-        messaje: "Carro inaxistente",
+        messaje: "Carro inexistente",
       };
   }
   async addCart() {
@@ -56,7 +56,7 @@ class CartManager {
           messaje:
             "Se agrego producto id:" +
             params.idproduct +
-            " al carro id:" +
+            " en carro id:" +
             params.idcart,
         };
       } else {
@@ -71,7 +71,7 @@ class CartManager {
             messaje:
               "Se agrega producto id:" +
               params.idproduct +
-              " al carro id:" +
+              " en carro id:" +
               params.idcart,
           };
         } catch {
